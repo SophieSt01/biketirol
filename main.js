@@ -68,5 +68,10 @@ controlElevation.load("data/etappe14.gpx"); //ruft plugin auf
 
 let pulldown = document.querySelector("#pulldown"); 
 for (let etappe of ETAPPEN){
-    pulldown.innerHTML +=`<option value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`
+    let status = " ";
+    if (etappe.nr == 14) {
+        status = "selected";
+        // bei allen Durchläufen ist Variable leer außer bei meiner Etappe
+    } 
+    pulldown.innerHTML +=`<option ${status} value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`
 }
