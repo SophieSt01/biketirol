@@ -65,3 +65,5 @@ let controlElevation = L.control.elevation({
     theme: "bike-tirol",
 }).addTo(map);  // initialisiert Plugin
 controlElevation.load("data/etappe14.gpx"); //ruft plugin auf
+
+console.log(ETAPPEN);
