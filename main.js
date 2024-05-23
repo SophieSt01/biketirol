@@ -11,6 +11,8 @@ let map = L.map("map", {
     fullscreenControl: true
 }).setView([ibk.lat, ibk.lng], 9);
 
+
+
 // thematische Layer
 let themaLayer = {
     route: L.featureGroup(),
@@ -66,20 +68,34 @@ let controlElevation = L.control.elevation({
 }).addTo(map);  // initialisiert Plugin
 controlElevation.load("data/etappe14.gpx"); //ruft plugin auf
 
-let pulldown = document.querySelector("#pulldown"); 
-for (let etappe of ETAPPEN){
+let pulldown = document.querySelector("#pulldown");
+for (let etappe of ETAPPEN) {
     let status = " ";
     if (etappe.nr == 14) {
         status = "selected";
         // bei allen Durchläufen ist Variable leer außer bei meiner Etappe
-    } 
-    pulldown.innerHTML +=`<option ${status} value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`
+    }
+    pulldown.innerHTML += `<option ${status} value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`
 }
 
-pulldown.onchange = function(evt){
+pulldown.onchange = function (evt) {
     let username = evt.target.value;
     let url = `https://${username}.github.io/biketirol`;
     console.log("Url:", url);
     console.log(window.location)
     window.location.href = url;
 }
+
+// Adding MiniMap
+// let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+// let osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+// let osm2 = new L.TileLayer(osmUrl, { minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+
+// new L.Control.MiniMap(osm2, { toggleDisplay: true }).addTo(map)
+
+let osm2 = L.tileLayer(
+    `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
+);
+new L.Control.MiniMap(osm2, {
+    toggleDisplay: true
+}).addTo(map);
