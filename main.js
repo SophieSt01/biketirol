@@ -57,3 +57,6 @@ L.control.layers({
 L.control.scale({
     imperial: false,
 }).addTo(map);
+
+let controlElevation = L.control.elevation({}).addTo(map);  // initialisiert Plugin
+controlElevation.load("data/etappe14.gpx"); //ruft plugin auf
