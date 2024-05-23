@@ -59,6 +59,8 @@ L.control.scale({
 }).addTo(map);
 
 let controlElevation = L.control.elevation({
-    time: false
+    time: false,
+    elevationDiv: "#profile",
+    height: 300,
 }).addTo(map);  // initialisiert Plugin
 controlElevation.load("data/etappe14.gpx"); //ruft plugin auf
