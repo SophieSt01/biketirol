@@ -16,7 +16,7 @@ let themaLayer = {
     route: L.featureGroup(),
 }
 
-// WMTS Hintergrundlayer der eGrundkarte Tirol
+// WMTS Hintergrundlayer der eGrundkarte Tirol (Kombi aus Hintergrundlayer und Beschriftung)
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
